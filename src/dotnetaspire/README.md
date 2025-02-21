@@ -1,19 +1,13 @@
 
 # .NET Aspire (dotnetaspire)
 
-This Feature installs .NET Aspire and if necessary the .NET (dotnet) that it depends on. Options are provided to choose a different version or additional versions.
-
-## OS Support
-
-This Feature should work on recent versions of Debian/Ubuntu-based distributions that support .NET and have the `apt` package manager installed
-
-`bash` is required to execute the `install.sh` script.
+Installs .NET Aspire. See https://aka.ms/dotnetaspire
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/devcontainers/features/dotnetaspire:1": {}
+    "ghcr.io/dotnet/aspire-devcontainer-feature/dotnetaspire:1": {}
 }
 ```
 
@@ -21,44 +15,19 @@ This Feature should work on recent versions of Debian/Ubuntu-based distributions
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | .NET Aspire version. Use 'latest' for the latest supported version, '9.0' for the 9.0 version, 'X.Y' or 'X.Y.Z' for a specific version, or 'latest-daily' for the latest unsupported build. | string | latest |
+| version | Select or enter a .NET Aspire version. Use 'latest' for the latest supported version, '9.0' for the 9.0 version, 'X.Y' or 'X.Y.Z' for a specific version, or 'latest-daily' for the latest unsupported build. | string | 9.0 |
 
 ## Customizations
 
 ### VS Code Extensions
 
 - `ms-dotnettools.csdevkit`
-
-## Configuration examples
-
-Installing only the latest .NET Aspire version (the default).
-
-``` jsonc
-"features": {
-    "ghcr.io/devcontainers/features/dotnetaspire:1": "latest" // or "" or {}
-}
-```
-
-Installing .NET Aspire version 9.0.
-
-``` jsonc
-"features": {
-    "ghcr.io/devcontainers/features/dotnetaspire:1": "9.0" // or "" or {}
-}
-```
-
-Installing the latest .NET Aspire unsupported build.
-
-``` jsonc
-"features": {
-    "ghcr.io/devcontainers/features/dotnetaspire:1": "latest-daily" // or "" or {}
-}
-```
+- `ms-azuretools.vscode-bicep`
+- `GitHub.copilot-chat`
+- `GitHub.copilot`
 
 
-## OS Support
 
-This Feature should work on recent versions of Debian/Ubuntu-based distributions with the `apt` package manager installed.
+---
 
-`bash` is required to execute the `install.sh` script.
-
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/dotnet/aspire-devcontainer-feature/blob/main/src/dotnetaspire/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
