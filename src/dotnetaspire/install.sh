@@ -14,17 +14,17 @@ set -e
 VERSION="${VERSION:-"latest"}"
 
 if [[ ! $VERSION =~ ^(9\.0|latest|latest-daily)$ ]]; then
-    echo "Error: VERSION must be either '9.0', '9.0.0', 'latest', or 'latest-daily' not: '$VERSION'."
+    echo "Error: VERSION must be either '9.1', '9.1.0', 'latest', or 'latest-daily' not: '$VERSION'."
     exit 1
 fi
 
 if [[ $VERSION =~ ^(9\.0|9\.0\.0|latest)$ ]]; then
-    VERSION="9.0.0"
+    VERSION="9.1.0"
 fi
 
 echo "Activating feature '.NET Aspire' version: $VERSION"
 
-# Before .NET Aspire 9.0 install required `dotnet workload`: this is no longer necessary, as Aspire is 
+# Before .NET Aspire 9.1 install required `dotnet workload`: this is no longer necessary, as Aspire is 
 # installed when restoring Aspire projects. It's only necessary to install the appropriate version of the templates.
 
 

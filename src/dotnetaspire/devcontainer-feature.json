@@ -10,10 +10,10 @@
             "proposals": [
                 "latest daily",
                 "latest",
-                "9.0",
+                "9.1",
             ],
-            "default": "9.0",
-            "description": "Select or enter a .NET Aspire version. Use 'latest' for the latest supported version, '9.0' for the 9.0 version, 'X.Y' or 'X.Y.Z' for a specific version, or 'latest-daily' for the latest unsupported build."
+            "default": "9.1",
+            "description": "Select or enter a .NET Aspire version. Use 'latest' for the latest supported version, '9.1' for the 9.1 version, 'X.Y' or 'X.Y.Z' for a specific version, or 'latest-daily' for the latest unsupported build."
         },
     },
     "customizations": {
