@@ -10,16 +10,22 @@
 
 set -e
 
+# Set the current latest Aspire version here
+ASPIRE_LATEST_VERSION="9.3.1"
+
 # default to latest if not specified
 VERSION="${VERSION:-"latest"}"
+INSTALL_CLI="${INSTALLCLI:-"true"}"
 
-if [[ ! $VERSION =~ ^(9\.1|latest|latest-daily)$ ]]; then
-    echo "Error: VERSION must be either '9.1', '9.1.0', 'latest', or 'latest-daily' not: '$VERSION'."
+# Acceptable versions: 9.x, 9.x.x, latest, latest-daily
+if [[ ! $VERSION =~ ^(9\.[0-9]+(\.[0-9]+)?|latest|latest-daily)$ ]]; then
+    echo "Error: VERSION must be a valid Aspire 9.x version (e.g., '9.1', '9.2.1'), 'latest', or 'latest-daily', not: '$VERSION'."
     exit 1
 fi
 
-if [[ $VERSION =~ ^(9\.1|9\.1\.0|latest)$ ]]; then
-    VERSION="9.1.0"
+# Map 'latest' to the current latest version
+if [[ $VERSION == "latest" ]]; then
+    VERSION="$ASPIRE_LATEST_VERSION"
 fi
 
 echo "Activating feature '.NET Aspire' version: $VERSION"
@@ -27,10 +33,7 @@ echo "Activating feature '.NET Aspire' version: $VERSION"
 # Before .NET Aspire 9.1 install required `dotnet workload`: this is no longer necessary, as Aspire is 
 # installed when restoring Aspire projects. It's only necessary to install the appropriate version of the templates.
 
-
-if [[ $VERSION =~ ^(9\.1\.0)$ ]]; then
-    dotnet new install --force Aspire.ProjectTemplates::$VERSION
-else
+if [[ $VERSION == "latest-daily" ]]; then
     # https://github.com/dotnet/aspire/blob/main/docs/using-latest-daily.md
     dotnet nuget add source --name dotnet9 https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet9/nuget/v3/index.json
 
@@ -44,6 +47,14 @@ else
     # </packageSourceMapping>
 
     dotnet new install Aspire.ProjectTemplates::*-* --force
+else
+    dotnet new install --force Aspire.ProjectTemplates::$VERSION
+fi
+
+# Optionally install the Aspire CLI if requested
+if [[ "${INSTALL_CLI,,}" == "true" ]]; then
+    echo "Installing Aspire CLI (prerelease)..."
+    dotnet tool install --global aspire.cli --prerelease
 fi
 
 echo "... done activating feature '.NET Aspire' version: $VERSION"
