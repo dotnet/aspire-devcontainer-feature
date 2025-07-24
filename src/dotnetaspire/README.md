@@ -15,7 +15,7 @@ Installs .NET Aspire. See https://aka.ms/dotnetaspire
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Select or enter a .NET Aspire version. Use 'latest' for the latest supported version, '9.0' for the 9.0 version, 'X.Y' or 'X.Y.Z' for a specific version, or 'latest-daily' for the latest unsupported build. | string | 9.0 |
+| version | Select or enter a .NET Aspire version. Use 'latest' for the latest supported version, '9.1' for the 9.1 version, 'X.Y' or 'X.Y.Z' for a specific version, or 'latest-daily' for the latest unsupported build. | string | 9.1 |
 
 ## Customizations
 
