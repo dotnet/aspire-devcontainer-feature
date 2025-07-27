@@ -13,7 +13,7 @@
                 "9.3",
             ],
             "default": "latest",
-            "description": "Select or enter an Aspire version. Use 'latest' for the latest supported version, '9.3.1' for the 9.3.1 version, 'X.Y' or 'X.Y.Z' for a specific version, or 'latest-daily' for the latest unsupported build."
+            "description": "Select or enter an Aspire version. Use 'latest' for the latest supported version, '9.3' for the 9.3 version, 'X.Y' or 'X.Y.Z' for a specific version, or 'latest-daily' for the latest unsupported build."
         },
     },
     "customizations": {
